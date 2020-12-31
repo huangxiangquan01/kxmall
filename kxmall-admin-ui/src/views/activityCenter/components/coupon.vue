@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    :visible.sync="visible"
+    :visible="visible"
     :title="title"
     :width="createDialogWidth"
     @close="onClose">
@@ -46,7 +46,7 @@
       </el-form-item>
       <el-form-item label="有效期">
         <div>
-          <el-radio-group v-model="info.effectiveTime" style="margin-bottom: 10px" @change="onEffectiveTimeChang">
+          <el-radio-group v-model="info.effectiveTime" style="margin-bottom: 10px">
             <el-radio-button label="1">领券相对天数</el-radio-button>
             <el-radio-button label="2">指定绝对时间</el-radio-button>
           </el-radio-group>
@@ -107,8 +107,7 @@
               ref="skuList"
               :data="info.couponSkuDoList"
               border
-              style="width: 100%; margin-top:20px"
-              @selection-change="onSelectSkuRow">
+              style="width: 100%; margin-top:20px">
               <el-table-column
                 type="selection"
                 align="center"
@@ -223,9 +222,9 @@ export default {
       default: 'edit'
     },
     id: {
-      type: String,
+      type: Number,
       required: true,
-      default: ''
+      default: 0
     }
   },
   data() {
@@ -235,6 +234,8 @@ export default {
       // mode: 'create',
       info: new DialogData(),
       categorySkuList: [],
+      // 是否全选
+      selectedAll: false,
       index: 0,
       rules: {
         title: [
@@ -340,7 +341,7 @@ export default {
   },
 
   watch: {
-    async visible(value) {
+    async visibleMethod(value) {
       if (this.visible && this.id) {
         const { data: { data: detail }} = await queryCouponById({ id: this.id })
         this.info = new DialogData(detail)

@@ -97,7 +97,7 @@
 
     <!-- 新建/编辑/查看 优惠券 -->
     <coupon
-      :visible.sync="createDialog.visible"
+      :visible="createDialog.visible"
       :title="createDialog.title"
       :mode="createDialog.mode"
       :id="createDialog.id"

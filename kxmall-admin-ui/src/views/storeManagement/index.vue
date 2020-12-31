@@ -11,14 +11,14 @@
       <el-option :value="0" label="休息中"/>
       <el-option :value="1" label="营业中"/>
     </el-select>
-    <el-select v-model="province" placeholder="请选择省" clearable filterable @change="getCity">
+    <el-select v-model="province" placeholder="请选择省" clearable filterable @change="getCityMethod">
       <el-option
         v-for="item in provinceList"
         :key="item.value"
         :label="item.label"
         :value="item.value"/>
     </el-select>
-    <el-select v-model="city" placeholder="请选择市" clearable filterable @change="getCounty">
+    <el-select v-model="city" placeholder="请选择市" clearable filterable @change="getCountyMethod">
       <el-option
         v-for="item in cityList"
         :key="item.value"
@@ -272,8 +272,8 @@ export default {
       status: '',
       tableData: [],
       provinceList: [],
-      // cityList: [],
-      // countyList: [],
+      cityList: [],
+      countyList: [],
       province: '',
       city: '',
       county: '',
@@ -379,15 +379,15 @@ export default {
         this.changePage({ limit: this.pageSize, page: this.currentPage })
       })
     },
-    // async getCity(val) {
-    //   this.city = ''
-    //   this.county = ''
-    //   this.cityList = (await getCity(val)).data.data
-    // },
-    // async getCounty(val) {
-    //   this.county = ''
-    //   this.countyList = (await getCounty(val)).data.data
-    // },
+    async getCityMethod(val) {
+      this.city = ''
+      this.county = ''
+      this.cityList = (await getCity(val)).data.data
+    },
+    async getCountyMethod(val) {
+      this.county = ''
+      this.countyList = (await getCounty(val)).data.data
+    },
     doSearch() {
       this.changePage({
         state: this.status,

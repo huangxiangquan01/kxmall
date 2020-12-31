@@ -136,6 +136,7 @@ export default {
       },
       // 表格列表内容
       list: [],
+      typeOptionss: [],
       total: 0,
       activityTypeList: [],
       isListLoading: false
