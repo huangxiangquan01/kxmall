@@ -1,6 +1,7 @@
 package com.kxmall.market.data.interceptor;
 
 import com.kxmall.market.data.dto.AdminDTO;
+import com.kxmall.market.data.dto.UserDTO;
 import com.kxmall.market.data.exception.MyselfPersistenceException;
 import com.kxmall.market.data.util.SessionUtil;
 import org.apache.ibatis.executor.Executor;
@@ -41,7 +42,15 @@ public class MybatisGuestOpeatorInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Exception {
         AdminDTO admin = SessionUtil.getAdmin();
-        if (admin != null && "guest".equals(admin.getUsername())) {
+        UserDTO user = SessionUtil.getUser();
+        if (admin != null && !"admin".equals(admin.getUsername())) {
+            Object[] args = invocation.getArgs();
+            MappedStatement mappedStatement = (MappedStatement) args[0];
+            if (!SqlCommandType.SELECT.equals(mappedStatement.getSqlCommandType())) {
+                throw new MyselfPersistenceException("演示模式，无权限操作!");
+            }
+        }
+        if (user !=null && !user.getPhone().equals("13333333333")) {
             Object[] args = invocation.getArgs();
             MappedStatement mappedStatement = (MappedStatement) args[0];
             if (!SqlCommandType.SELECT.equals(mappedStatement.getSqlCommandType())) {
