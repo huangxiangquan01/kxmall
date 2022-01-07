@@ -78,10 +78,10 @@ kxmall项目结构:
   - 演示地址: [http://116.62.17.100:8787](http://116.62.17.100:8787)
   - 登录名:16666666666 验证码:123456 
 - Pages
- 
-![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-1.jpg)  
-![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-2.jpg)
-![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-3.jpg)
+
+| 河禾生鲜 | 河禾生鲜 | 河禾生鲜 |
+| :----: | :----: | :----: |
+| ![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-1.jpg)  | ![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-2.jpg) | ![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-3.jpg) |
 
 #### 项目部署方式
 
