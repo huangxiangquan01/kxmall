@@ -40,7 +40,7 @@ kxmall项目结构:
 
 ---
 - H5客户端
-  - 后台演示地址: [http://116.62.17.100:8686](http://116.62.17.100:8686)
+  - 演示地址: [http://116.62.17.100:8686](http://116.62.17.100:8686)
   - 登录名:13333333333 验证码:666666 
   - 客户端由于调用地图需要https，所以程序目前固定id为11仓库
 - Pages
@@ -56,8 +56,8 @@ kxmall项目结构:
 
 
 ---
-- Admin
-  - 后台演示地址: [http://116.62.17.100](http://116.62.17.100)
+- Admin后台
+  - 演示地址: [http://116.62.17.100](http://116.62.17.100)
   - 登录名:guest 密码:123456 (guest仅有只读权限，无读配置权限)
   - 登录名(超级管理员):admin (需要体验的，密码可以找群主拿，QQ群：865607763)
 - Pages
@@ -68,6 +68,20 @@ kxmall项目结构:
 
 - 登录名:guest   密码:123456   验证码:666666 (guest仅有只读权限)
 
+#### 后台端系统演示
+
+使用免费开源框架vue-element-admin，基于element-ui的后台管理页面！尽情体验！
+
+
+---
+- 骑手后台
+  - 演示地址: [http://116.62.17.100:8787](http://116.62.17.100:8787)
+  - 登录名:16666666666 验证码:123456 
+- Pages
+ 
+![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-1.jpg)  
+![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-2.jpg)
+![河禾生鲜](https://nontax.oss-cn-beijing.aliyuncs.com/kxmall/kxmall-rider-3.jpg)
 
 #### 项目部署方式
 
