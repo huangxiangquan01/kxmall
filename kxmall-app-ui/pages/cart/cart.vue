@@ -5,15 +5,15 @@
 			<!-- 空白页 -->
 			<view v-if="!hasLogin || empty===true" >
 				<view v-if="hasLogin" style="padding-top: 180rpx;padding-bottom: 180rpx;width: 750rpx;">
-					<missing :buttonName="'去添加商品'" :handlerName="'buttonClick'" 
-					@buttonClick="toCategory" 
-					:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png'" 
+					<missing :buttonName="'去添加商品'" :handlerName="'buttonClick'"
+					@buttonClick="toCategory"
+					:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png'"
 					:desc="'购物车空空如也，您不添加吗？'"></missing>
 				</view>
 				<view v-else style="padding-top: 180rpx;padding-bottom: 180rpx;width: 750rpx;">
-					<missing :buttonName="'去登录'" :handlerName="'buttonClick'" 
-					@buttonClick="navToLogin" 
-					:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png'" 
+					<missing :buttonName="'去登录'" :handlerName="'buttonClick'"
+					@buttonClick="navToLogin"
+					:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png'"
 					:desc="'购物车空空如也，您不添加吗？'"></missing>
 				</view>
 			</view>
@@ -24,7 +24,7 @@
 						<view :class="[index+1 < cartList.length?'solid-bottom':'']" class="padding-tb  flex align-center">
 							<view v-if="item.stockless" style="color: #CFCFCF;font-size: 28rpx;line-height: 40rpx;flex-shrink: 0;">失效</view>
 							<image v-else @click="check('item', index)"
-							:src="item.checked ?'/static/cart/selected.png':'/static/cart/select.png'" 
+							:src="item.checked ?'/static/cart/selected.png':'/static/cart/select.png'"
 							mode="aspectFill"
 							style="width: 40rpx;height: 40rpx;flex-shrink: 0;"></image>
 							<view class="" style="padding-left: 52rpx;flex-shrink: 0;">
@@ -35,11 +35,11 @@
 								@error="onImageError('cartList', index)"
 								style="width: 130rpx;height: 130rpx;"></image>
 							</view>
-							<view class="flex justify-between flex-direction" 
+							<view class="flex justify-between flex-direction"
 							style="padding-left: 48rpx;height: 180rpx;flex-grow: 1;">
 								<view class="flex justify-between align-start">
 									<view style="width: 400rpx;" class="lem-text-black lem-text-xxl text-2-cut">{{item.title}}</view>
-									<image src="../../static/cart/delete.png" mode="aspectFill" 
+									<image src="../../static/cart/delete.png" mode="aspectFill"
 									@click="deleteCartItem(index)"
 									style="width: 32rpx;height: 32rpx;margin-top: 15rpx;"></image>
 								</view>
@@ -48,12 +48,12 @@
 										<view style="font-weight: 500;color: #FC6620;"
 										class=" lem-text-xxl padding-right-sm"> ￥ {{item.price / 100}}</view>
 										<view style="color: #AEAEAE;font-size: 24rpx;line-height: 44rpx;padding: 0 10rpx;text-decoration: line-through;">
-											 ￥{{item.originalPrice/100}} 
+											 ￥{{item.originalPrice/100}}
 										</view>
 									</view>
 									<uni-number-box
 										class="number-box"
-										:min="1" 
+										:min="1"
 										:max="item.stock"
 										:value="item.num"
 										:isMin="item.num===0"
@@ -82,15 +82,15 @@
 								@error="onImageError('cartList', index)"
 								style="width: 130rpx;height: 130rpx;"></image>
 							</view>
-							<view class="flex justify-between flex-direction" 
+							<view class="flex justify-between flex-direction"
 							style="padding-left: 48rpx;height: 180rpx;flex-grow: 1;">
 								<view class="lem-text-black lem-text-xxl text-2-cut">{{item.title}}</view>
 								<view class="flex justify-between align-end" >
-									<view style="font-weight: 500;color: #FC6620" 
+									<view style="font-weight: 500;color: #FC6620"
 									class="lem-text-xxl"> ￥ {{item.price / 100}}</view>
 									<uni-number-box
 										class="number-box"
-										:min="1" 
+										:min="1"
 										:value="item.num"
 										:isMin="item.num===1"
 										:index="index"
@@ -108,33 +108,33 @@
 				<view class="bg-white flex justify-between align-center padding-tb-xs padding-lr"
 				style="position: fixed;bottom: 0;width: 750rpx;z-index: 99999;">
 					<view @click="cancelAllAdd" class="flex align-center">
-						<image 
-						:src="allChecked ?'/static/cart/selected.png':'/static/cart/select.png'" 
+						<image
+						:src="allChecked ?'/static/cart/selected.png':'/static/cart/select.png'"
 						mode="aspectFit"
 						style="width: 40rpx;height: 40rpx;flex-shrink: 0;"></image>
-						<view class="lem-text-grey" 
+						<view class="lem-text-grey"
 						style="padding-left: 16rpx;font-size: 26rpx;line-height: 36rpx;">全选</view>
 					</view>
 					<view style="padding-left: 54rpx;">
 						<view class="flex align-center">
 							<view class="lem-text-grey lem-text-lg">总计</view>
-							<view class="padding-left-xs lem-text-title" 
+							<view class="padding-left-xs lem-text-title"
 							style="color: #FC6620;font-weight: 500;">￥ {{total / 100.0}}</view>
 						</view>
 						<view style="font-size: 20rpx;line-height: 36rpx;" class="lem-text-gray"
 						>已优惠：{{(yuanjia-total)/100}}元</view>
 					</view>
-					<button @click="createOrder" style="width: 240rpx;height: 84rpx;font-weight: 500;" 
+					<button @click="createOrder" style="width: 240rpx;height: 84rpx;font-weight: 500;"
 					class="lem-btn round bg-green lem-text-xl ">提交订单</button>
 				</view>
 			</view>
 		</view>
-		
+
 	</view>
 	<view v-else style="padding-top: 180rpx;padding-bottom: 180rpx;width: 750rpx;">
-		<missing :buttonName="'换个地址试试吧~'" :handlerName="'buttonClick'" 
-		@buttonClick="chooseLocation" 
-		:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%204%20%E6%8B%B7%E8%B4%9D@3x.png'" 
+		<missing :buttonName="'换个地址试试吧~'" :handlerName="'buttonClick'"
+		@buttonClick="chooseLocation"
+		:imgUrl="'http://qiniuoss.nauzone.cn/%E7%BB%84%204%20%E6%8B%B7%E8%B4%9D@3x.png'"
 		:desc="'当前地区不在配送范围哦'"></missing>
 	</view>
 </view>
@@ -165,7 +165,7 @@
 			};
 		},
 		onLoad(){
-			
+
 		},
 		onShow() {
 			this.$store.state.storageId ? this.storage = true : this.storage = false
@@ -182,6 +182,8 @@
 					this.total = 0
 					this.yuanjia = 0
 					this.empty = true
+				}else{
+					this.empty = false
 				}
 			}
 		},
@@ -217,7 +219,7 @@
 					// 	that.stockLessList.push(res.data[item])
 					// })
 					that.cartList = res.data
-					
+
 					that.calcTotal();  //计算总价
 					this.stockLessIds = lessIds.join(',')
 				})
@@ -298,7 +300,7 @@
 					this.deleteCartItem(data.index)
 					return
 				}
-				
+
 				that.$api.request('cart','updateCartItemNum', {
 					cartId: that.cartList[data.index].id,
 					num: data.number
@@ -333,7 +335,7 @@
 					that.calcTotal();
 					this.countTabNum()
 					//uni.hideLoading();
-				})				
+				})
 			},
 			//清空
 			clearCart(){
@@ -359,7 +361,7 @@
 					// that.calcTotal();
 					this.countTabNum()
 					//uni.hideLoading();
-				})	
+				})
 			},
 			//计算总价
 			calcTotal(){
@@ -387,6 +389,7 @@
 				this.allChecked = checked;
 				this.total = Number(total.toFixed(2));
 				this.totalItems = totalItems
+				this.empty = false
 			},
 			//创建订单
 			createOrder(){
@@ -462,11 +465,11 @@
 		width: 146rpx;
 		height: 46rpx;
 	}
-	
+
 	.butouming{
 		opacity:0.5;
 	}
-	
+
 	.container{
 		padding-bottom: 134upx;
 		/* 空白页 */
@@ -550,7 +553,7 @@
 		}
 		.del-btn{
 			padding:4upx 10upx;
-			font-size:34upx; 
+			font-size:34upx;
 			height: 50upx;
 			color: $font-color-light;
 		}
