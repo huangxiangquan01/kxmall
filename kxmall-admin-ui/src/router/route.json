@@ -106,24 +106,22 @@
 				"page": "/storeManagement/stock"
       },
 			{
-				"path":"putIn",
+				"path":"inStock",
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"admin:enterStock:update",
-						"admin:enterStock:delete",
-						"admin:enterStock:list",
-						"admin:enterStock:create",
-						"admin:enterStock:update",
-						"admin:enterStock:selectById",
-						"admin:enterStock:UpdateEnterStockStatus",
-						"admin:enterStock:deleteBatch",
-						"admin:enterStock:getGoodsDetail"
+            "admin:goodsInStock:update",
+            "admin:goodsInStock:delete",
+            "admin:goodsInStock:list",
+            "admin:goodsInStock:create",
+            "admin:goodsInStock:selectById",
+            "admin:goodsInStock:updateInOfStock",
+            "admin:goodsInStock:storagAllName"
 					],
 					"title":"商品入库"
 				},
-				"name": "putIn",
-				"page": "/storeManagement/putIn"
+				"name": "inStock",
+				"page": "/storeManagement/inStock"
       },
       {
         "path":"outStock",
@@ -149,8 +147,7 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:addWare",
-						"operation:data:edit"
+            "admin:storage:create"
 					],
 					"title":"新增仓库"
 				},
@@ -163,8 +160,7 @@
 				"meta":{
 					"noCache":true,
 					"perms":[
-						"operation:data:addWare",
-						"operation:data:edit"
+            "admin:storage:update"
 					],
 					"title":"编辑仓库"
 				},
@@ -193,6 +189,35 @@
 		"name":"mallManage",
 		"alwaysShow":true
 	},
+  {
+    "redirect":"noredirect",
+    "path":"/dispatch",
+    "children":[
+      {
+        "path": "rider",
+        "meta": {
+          "noCache": true,
+          "perms": [
+            "admin.rider:list",
+            "admin.rider:update",
+            "admin.rider:batchToNomral",
+            "admin.rider:batchToAbort",
+            "admin.rider:batchToOpen",
+            "admin.rider:batchToRest"
+          ],
+          "title": "配送员管理"
+        },
+        "name": "rider",
+        "page": "/rider/list"
+      }
+    ],
+    "meta":{
+      "icon":"chart",
+      "title":"调度管理"
+    },
+    "name":"mallManage",
+    "alwaysShow":true
+  },
 	{
 		"redirect":"noredirect",
     "path":"/carousel",

@@ -25,7 +25,8 @@ kxmall项目结构:
     - kxmall-rider-ui: 基于uniapp的小程序、H5、APP骑手代码
 
 - sql: 数据库初始化SQL脚本
-
+* 阿里云折扣场：[点我进入](https://www.aliyun.com/minisite/goods?userCode=gclm7a7u)&nbsp;&nbsp;
+* 腾讯云秒杀场：[点我进入](https://curl.qcloud.com/6iRoSBvc)&nbsp;&nbsp;
 #### 数据库初始化sql文件，请进入讨论交流群，群文件自行下载，欢迎讨论与交流
 ---
 #### 优先更新地址
@@ -88,7 +89,8 @@ kxmall项目结构:
 
 ##### ⓪ 服务器推荐
 服务器可根据自身业务来选购，单机环境推荐2C4G
-
+* 阿里云折扣场：[点我进入](https://www.aliyun.com/minisite/goods?userCode=gclm7a7u)&nbsp;&nbsp;
+* 腾讯云秒杀场：[点我进入](https://curl.qcloud.com/6iRoSBvc)&nbsp;&nbsp;
 ##### ① 基础运行环境
 
 | 运行环境 | 版本号 |
