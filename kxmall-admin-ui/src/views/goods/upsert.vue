@@ -248,7 +248,6 @@
 <script>
 import { detailGoods, editGoods, createGoods } from '@/api/goods'
 import { categoryTree } from '@/api/category'
-import { listFreight } from '@/api/freight'
 import { uploadPath, createStorage } from '@/api/storage'
 import Editor from '@tinymce/tinymce-vue'
 import { MessageBox } from 'element-ui'
@@ -390,10 +389,6 @@ export default {
             val.children = undefined
           })
         })
-      })
-
-      listFreight().then(response => {
-        this.freightList = response.data.data
       })
     },
     handleCategoryChange(value) {

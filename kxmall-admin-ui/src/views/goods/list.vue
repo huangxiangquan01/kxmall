@@ -90,10 +90,6 @@
 
       <el-table-column align="center" label="类目ID" prop="categoryId" />
 
-      <el-table-column align="center" label="邮费模板ID" prop="freightTemplateId" />
-
-      <el-table-column align="center" label="销量" prop="sales" />
-
       <el-table-column align="center" label="单位" prop="unit" />
 
       <el-table-column align="center" label="是否在售" prop="status">

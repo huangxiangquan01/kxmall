@@ -190,8 +190,10 @@
 				}
 			}
 			//如果用户已登录，获取购物车数量
-			if(this.$store.state.userInfo.accessToken){
-				this.$api.request('cart','countCart').then(res=>{
+			if(this.$store.state.userInfo.accessToken && this.$store.state.storageId != 0){
+				this.$api.request('cart','countCart',{
+					storageId:this.$store.state.storageId
+				}).then(res=>{
 					if(res.data > 0){
 						uni.setTabBarBadge({
 							index:2,
@@ -204,7 +206,7 @@
 					}
 					this.$store.commit('addCart',res.data)
 				}).catch(err=>{
-					// this.$api.msg('请求失败，请稍后再试')
+					this.$api.msg('请求失败，请稍后再试')
 				})
 			}
 		},
@@ -249,9 +251,13 @@
 			}).then(res=>{
 				this.indexBanner = res.data[0]
 			})
-			var [err, res1] = await uni.getLocation({
-				type: 'wgs84'
-			})
+			// var [err, res1] = await uni.getLocation({
+			// 	type: 'wgs84'
+			// })
+			var res1={}
+			res1.errMsg ='getLocation:ok'
+			res1.longitude ='11.22'
+			res1.latitude ='11.22'
 			if (res1.errMsg === 'getLocation:ok') {
 				uni.showLoading({
 					title: "加载中..."
@@ -264,17 +270,11 @@
 					this.logining = false
 					this.loaded = true
 					this.$api.msg(failres.errmsg)
-					this.$store.commit('setStorage', 11)
-					this.loadData(11)
-					if (!11) {
-						this.storage = false
-					} else {
-						this.loadRecommand('refresh')
-					}
+					this.loadRecommand('refresh')
 				}).then(res => {
 					uni.hideLoading()
 					console.log(res)
-					res.data.id = 11
+					res.data.id = res.data.id
 					this.loaded = true
 					this.$store.commit('setStorage', res.data.id)
 					this.loadData(res.data.id)
@@ -292,27 +292,8 @@
 			if (address.pois.length > 0 && address.pois[0].name.length < 8) {
 				this.district = address.pois[0].name
 			}
-			// this.district = address ? address.district : '定位失败'
 			//获取前置仓数据
 			console.log(address)
-			// this.$api.request('position','getRecentlyStorage',{
-			// 	adcode:address.adcode,lng:address.longitude,
-			// 	lat:address.latitude
-			// },failres => {
-			// 		this.logining = false
-			// 		this.$api.msg(failres.errmsg)
-			// }).then(res=>{
-			// 	console.log(res)
-			// 	// res.data.id = 11
-			// 	// this.$store.commit('setStorage',res.data.id)
-			// 	// this.loadData(res.data.id)
-			// 	// if(!res.data.id){
-			// 	// 	this.storage = false
-			// 	// }else{
-			// 	// 	this.loadRecommand('refresh')
-			// 	// }
-			// })
-			// console.log(JSON.stringify(address))
 		},
 		onPageScroll(e) {
 			e.scrollTop >= 100 ? this.appear = false : this.appear = true
@@ -380,7 +361,7 @@
 				}).then(res => {
 					let data = res.data
 					//橱窗
-					that.windowSpuList = data.windowRecommend
+					that.windowSpuList = data.cheapRecommend
 					//轮播
 					data.advertisement.t1.forEach(item => {
 						if (!item.color) {
@@ -395,10 +376,10 @@
 					}
 
 					//弹窗
-					if (data.advertisement.t5.length > 0) {
-						that.t5 = data.advertisement.t5[0]
-						this.ismask = true
-					}
+					// if (data.advertisement.t5.length > 0) {
+					// 	that.t5 = data.advertisement.t5[0]
+					// 	this.ismask = true
+					// }
 					
 					this.newTimesContent = data.newTimesContent
 
@@ -505,7 +486,6 @@
 						}).then(res => {
 							uni.hideLoading()
 							console.log(res)
-							// res.data.id = 11
 							this.$store.commit('setStorage', res.data.id)
 							this.newTop = []
 							this.cheapRecommend = []
