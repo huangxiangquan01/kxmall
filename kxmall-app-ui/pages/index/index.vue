@@ -76,10 +76,10 @@
 				</view>
 			</view>
 		</view>
-		<view v-if="storage" class="margin-tb-sm flex align-center bg-white flex padding-top-xs padding-bottom-sm">
+		<view v-if="storage" class="margin-tb-sm flex align-center bg-white flex padding-top-xs padding-bottom-sm" style="width: 1000px;">
 			<image src="../../static/index/title.png" mode="aspectFit" class="bg-white" 
 			style="width: 184rpx;height: 43rpx;z-index: 99;padding:0 30rpx;"></image>
-			<view style="width: 550rpx;color: #999999;font: 26rpx;" 
+			<view style="width: 650px;color: #999999;font: 26rpx;" 
 			class="padding-left-sm margin-left-sm newtimes text-df">
 				{{newTimesContent}}
 			</view>
