@@ -39,6 +39,7 @@ services:
       TZ: Asia/Shanghai
     ports:
       - "80:80"
+      - "8585:8585"
       - "443:443"
     volumes:
       # 证书映射
