@@ -22,9 +22,9 @@
           </el-input>
         </el-form-item> -->
 
-        <el-form-item label="剩余库存" prop="stock">
-          <el-input v-model="goods.stock" :disabled="true" clearable placeholder="0"/>
-        </el-form-item>
+<!--        <el-form-item label="剩余库存" prop="stock">-->
+<!--          <el-input v-model="goods.stock" :disabled="true" clearable placeholder="0"/>-->
+<!--        </el-form-item>-->
 
         <el-form-item label="是否在售" prop="status">
           <el-radio-group v-model="goods.status">
