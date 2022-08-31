@@ -344,6 +344,7 @@ export default {
         imgUrl: undefined,
         status: undefined,
         color: undefined,
+        userLinkUnion: '',
         outUrl: ''
       }
       this.linkUnion = undefined
@@ -398,6 +399,7 @@ export default {
       this.dataForm.imgUrl = response.url
     },
     createData() {
+      this.dataForm.url = this.userLinkUnion
       this.$refs['dataForm'].validate(valid => {
         if (valid && this.checkAdType()) {
           createAd(this.dataForm)
@@ -420,34 +422,34 @@ export default {
     },
     checkAdType() {
       // 如果是用户自己填的活动链接 则不需要经过验证
-      if (this.useUser) return true
-      // 检测关联选项是否是三级目录或商品
-      if (this.linkUnion === undefined || this.linkUnion === null || this.linkUnion.length < 2) {
-        this.$notify.error({
-          title: '失败',
-          message: '请关联二级目录或者商品'
-        })
-        return false
-      }
-
-      for (let i = 0; i < this.adTypeMap.length; i++) {
-        const item = this.adTypeMap[i]
-        if (item.value === this.dataForm.adType) {
-          if (item.unionType === 1 && this.linkUnion.length === 4) {
-            this.$notify.error({
-              title: '失败',
-              message: '此类广告只能关联二级类目'
-            })
-            return false
-          } else if (this.unionType === 2 && this.linkUnion.length === 3) {
-            this.$notify.error({
-              title: '失败',
-              message: '此类广告只能关联商品'
-            })
-            return false
-          }
-        }
-      }
+      // if (this.useUser) return true
+      // // 检测关联选项是否是三级目录或商品
+      // if (this.linkUnion === undefined || this.linkUnion === null || this.linkUnion.length < 2) {
+      //   this.$notify.error({
+      //     title: '失败',
+      //     message: '请关联二级目录或者商品'
+      //   })
+      //   return false
+      // }
+      //
+      // for (let i = 0; i < this.adTypeMap.length; i++) {
+      //   const item = this.adTypeMap[i]
+      //   if (item.value === this.dataForm.adType) {
+      //     if (item.unionType === 1 && this.linkUnion.length === 4) {
+      //       this.$notify.error({
+      //         title: '失败',
+      //         message: '此类广告只能关联二级类目'
+      //       })
+      //       return false
+      //     } else if (this.unionType === 2 && this.linkUnion.length === 3) {
+      //       this.$notify.error({
+      //         title: '失败',
+      //         message: '此类广告只能关联商品'
+      //       })
+      //       return false
+      //     }
+      //   }
+      // }
       return true
     },
     // 点击编辑按钮时的处理
