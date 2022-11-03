@@ -237,12 +237,13 @@ Vue.prototype.$getLocation = async (isChoose=false,latitude='',longitude='')=>{
 		ret.longitude = res.longitude
 	}else{
 		var [err,res] =  await uni.getLocation({
-		    type: 'wgs84'
+			type: 'wgs84'
 		})
-		if(res.errMsg === 'getLocation:ok'){
+		if(res && res.errMsg === 'getLocation:ok'){
 			ret.latitude = res.latitude
 			ret.longitude = res.longitude
 		}else{
+			console.log(err.errMsg)
 			return false
 		}
 	}
