@@ -143,13 +143,4 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 发布maven私服 -->
-    <!--<distributionManagement>-->
-    <!--<repository>-->
-    <!--<id>iotechn-release</id>-->
-    <!--<name>kxmall maven</name>-->
-    <!--<url>http://maven.iotechn.com/repository/maven-releases/</url>-->
-    <!--</repository>-->
-    <!--</distributionManagement>-->
-
 </project>
