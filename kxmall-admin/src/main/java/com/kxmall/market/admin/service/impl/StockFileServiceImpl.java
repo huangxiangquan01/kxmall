@@ -83,7 +83,7 @@ public class StockFileServiceImpl implements StockFileService {
                         stockDO.setStorageId(storageId);
                         stockDO.setSkuId(skuId);
                         Integer status = stockExcelDTO.getStatus();
-                        Integer price = stockExcelDTO.getPrice();
+                        Integer price = stockExcelDTO.getPrice() * 100;
                         Long stock = stockExcelDTO.getStock();
                         if(status != null && price != null && stock != null){
                             stockDO.setStatus(status);
