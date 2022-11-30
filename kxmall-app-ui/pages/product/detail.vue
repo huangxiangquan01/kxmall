@@ -13,7 +13,7 @@
 		<view class="introduce-section">
 			<view class="text-2-cut " style="font-size: 36rpx;font-weight: bold; line-height: 50rpx;color: #333333;width: 686rpx;"
 			>{{goods.title}}</view>
-			
+
 			<view class="flex align-start justify-between padding-top-sm">
 				<view class="text-cut" style="width: 580rpx;font-size: 28rpx;line-height: 40rpx;color: #8D8E99;">
 					{{goods.description}}
@@ -35,7 +35,7 @@
 				<view class="">
 					<view class="flex align-center">
 						<view class="text-green" style="font-size: 40rpx;line-height: 56rpx;font-weight: 600;">
-							￥{{goods.stockDto.price/100}} 
+							￥{{goods.stockDto.price/100}}
 						</view>
 						<view class="bg-gradual-orange margin-left-sm" v-if="zhekou >= 0"
 						style="border-radius: 4rpx;padding: 0 8rpx;line-height: 34rpx;font-size: 24rpx;">
@@ -61,11 +61,11 @@
 					推荐给好友<text style="font-size: 12px;" class="yticon icon-fenxiang2"></text>
 				</view>
 			</view>
-			
+
 			<view class="flex justify-between align-center">
 				<text v-if="(isVip ? (selectedSku.vipPrice ? selectedSku.vipPrice : goods.vipPrice) : (selectedSku.price ? selectedSku.price : goods.price)) < (selectedSku.price ? selectedSku.originalPrice : goods.originalPrice)"
 				 class="m-price" style="font-size: 24rpx; margin-left: 0rpx;margin-right: 0;">¥{{(selectedSku.price ? selectedSku.originalPrice : goods.originalPrice) / 100}}/{{goods.unit}}</text>
-				
+
 				<view class="text-sm text-gray">{{goods.sales}}人已购买</view>
 			</view> -->
 			<!-- <view class="bot-row"> -->
@@ -105,14 +105,17 @@
 			</view>
 			<view class="c-row b-b" style="align-items: flex-start;">
 				<text class="tit">配送费用</text>
-				<view v-if="goods.freightTemplate && goods.freightTemplate.freightTemplateDO.defaultFreePrice == 0" class="con-list">
-					全场免运费
-				</view>
-				<view v-else class="con-list">
-					<text>单笔购买满¥{{goods.freightTemplate.freightTemplateDO.defaultFreePrice / 100.0}}元免邮费</text>
-					<text v-if="goods.freightTemplate.freightTemplateDO.defaultContinueMoney > 0">每增加{{goods.freightTemplate.freightTemplateDO.defaultFirstNum}}件，增加运费¥{{goods.freightTemplate.freightTemplateDO.defaultContinueMoney / 100.0}}元</text>
-					<text v-if="goods.freightTemplate.freightTemplateCarriageDOList.length > 0">TODO 特殊情况说明页面</text>
-				</view>
+        <view class="con-list">
+          全场免运费
+        </view>
+        <!-- <view v-if="goods.freightTemplate && goods.freightTemplate.freightTemplateDO.defaultFreePrice == 0" class="con-list">
+          全场免运费
+        </view>
+        <view v-else class="con-list">
+          <text>单笔购买满¥{{goods.freightTemplate.freightTemplateDO.defaultFreePrice / 100.0}}元免邮费</text>
+          <text v-if="goods.freightTemplate.freightTemplateDO.defaultContinueMoney > 0">每增加{{goods.freightTemplate.freightTemplateDO.defaultFirstNum}}件，增加运费¥{{goods.freightTemplate.freightTemplateDO.defaultContinueMoney / 100.0}}元</text>
+          <text v-if="goods.freightTemplate.freightTemplateCarriageDOList.length > 0">TODO 特殊情况说明页面</text>
+        </view> -->
 			</view>
 			<!-- <view class="c-row b-b">
 				<text class="tit">规格</text>
@@ -180,7 +183,7 @@
 				<!-- <button style="width: 250rpx;" type="primary" class=" action-btn no-border add-cart-btn" @click="addCart">加入购物车</button>
 			</view>
 		</view> -->
-		<view class="bg-white flex align-end" 
+		<view class="bg-white flex align-end"
 		style="position: fixed;bottom: 0;width: 750rpx;height: 98rpx;padding-left: 38rpx;">
 			<view @click="navCart" class="flex align-end" style="width: 346rpx;height: 98rpx;padding-bottom: 16rpx;">
 				<view style="position: relative;">
@@ -231,14 +234,14 @@
 				</view>
 				<view class="solid-bottom flex flex-wrap" style="padding: 0 0 50rpx 40rpx;margin: 0 44rpx 0 42rpx;">
 					<view @click="share('miniwechat')" style="text-align: center;">
-						<button open-type="share" class="round" style="width: 88rpx;height: 88rpx;padding: 0;"> 
+						<button open-type="share" class="round" style="width: 88rpx;height: 88rpx;padding: 0;">
 						<image class="round" src="../../static/login/weixindefuben@3x.png" mode="aspectFit"
 						style="width: 88rpx;height: 88rpx;"></image>
 						</button>
 						<view style="font-size: 24rpx;line-height: 34rpx;color: #999999;padding-top: 26rpx;">微信</view>
 					</view>
 				</view>
-				<view @click="toggleMask1" class="flex justify-center align-center" 
+				<view @click="toggleMask1" class="flex justify-center align-center"
 				style="padding: 34rpx 0 24rpx;font-size: 30rpx;line-height: 42rpx;color: #333333;">
 					取消
 				</view>
@@ -461,7 +464,7 @@
 							text:this.cartNum+''
 						})
 					}
-					
+
 				})
 				return
 				if (!that.selectedSku.id) {
@@ -479,7 +482,7 @@
 						} else {
 							that.$api.msg('添加购物车成功')
 						}
-						
+
 					})
 				}
 			},
@@ -561,7 +564,7 @@
 		background: $page-color-base;
 		padding-bottom: 160upx;
 	}
-	
+
 	.badge{
 		background-color: #FF473C;
 		width: 32rpx;
@@ -572,7 +575,7 @@
 		left: 42rpx;
 		bottom: 32rpx;
 	}
-	
+
 	.bg-gradual-orange {
 	  background-image: linear-gradient(180deg, #FE9F43, #FC6620);
 	  color: #fff;
@@ -1284,10 +1287,10 @@
 		padding: 0;
 		line-height: 0px;
 	}
-	
+
 
 	button::after {
 		border: none;
 	}
-	
+
 </style>
