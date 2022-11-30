@@ -25,7 +25,11 @@ kxmall项目结构:
     - kxmall-admin-ui: 基于element-ui的后台管理页面
     - kxmall-app-ui: 基于uniapp的小程序、H5、APP前端代码
     - kxmall-rider-ui: 基于uniapp的小程序、H5、APP骑手代码
-
+  
+- kxmall自动生成代码（独立项目）
+    - reverse-kxmall-launch: 自动生成代码启动器
+    - reverse-kxmall-ui：自动生成代码前端
+    - 下载地址 https://download.csdn.net/download/qq_38377190/87213044
 - sql: 数据库初始化SQL脚本
 
 * 阿里云折扣场：[点我进入](https://www.aliyun.com/minisite/goods?userCode=gclm7a7u)&nbsp;&nbsp;
