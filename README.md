@@ -26,7 +26,7 @@ kxmall项目结构:
     - kxmall-app-ui: 基于uniapp的小程序、H5、APP前端代码
     - kxmall-rider-ui: 基于uniapp的小程序、H5、APP骑手代码
   
-- kxmall自动生成代码（独立项目）
+- kxmall代码生成器-自动生成代码（独立项目）
     - reverse-kxmall-launch: 自动生成代码启动器
     - reverse-kxmall-ui：自动生成代码前端
     - 下载地址 https://download.csdn.net/download/qq_38377190/87213044
