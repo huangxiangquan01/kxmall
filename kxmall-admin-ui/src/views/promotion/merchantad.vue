@@ -475,6 +475,7 @@ export default {
       })
     },
     updateData() {
+      this.dataForm.url = this.userLinkUnion
       this.$refs['dataForm'].validate(valid => {
         if (valid && this.checkAdType()) {
           updateAd(this.dataForm)
