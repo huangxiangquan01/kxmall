@@ -26,7 +26,7 @@ kxmall项目结构:
     - kxmall-app-ui: 基于uniapp的小程序、H5、APP前端代码
     - kxmall-rider-ui: 基于uniapp的小程序、H5、APP骑手代码
   
-- kxmall自动生成代码（独立项目）
+- kxmall代码生成器-自动生成代码（独立项目）
     - reverse-kxmall-launch: 自动生成代码启动器
     - reverse-kxmall-ui：自动生成代码前端
     - 下载地址 https://download.csdn.net/download/qq_38377190/87213044
@@ -54,6 +54,7 @@ kxmall项目结构:
   - 演示地址: [http://h5.kxmall.vip](http://h5.kxmall.vip)
   - 登录名:13333333333 验证码:666666 （访问请打开浏览器F12开发模式,使用手机模式进行操作）
   - 客户端由于调用地图需要https，所以程序目前固定id为11仓库
+  - 已跳过支付模块，可正常体验操作流程
 - Pages
 
 | 河禾生鲜 | 河禾生鲜 | 河禾生鲜 |
